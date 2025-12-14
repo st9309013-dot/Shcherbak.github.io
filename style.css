@@ -1,0 +1,271 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #2c3e50;
+    background-color: #ffffff;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+#pie:checked ~ .site-wrapper .gallery .card:not(.category-pie),
+#roll:checked ~ .site-wrapper .gallery .card:not(.category-roll),
+#cheesecake:checked ~ .site-wrapper .gallery .card:not(.category-cheesecake),
+#cake:checked ~ .site-wrapper .gallery .card:not(.category-cake),
+#pastry:checked ~ .site-wrapper .gallery .card:not(.category-pastry) {
+    display: none;
+}
+
+#reset:checked ~ .site-wrapper .filter-nav label[for="reset"],
+#pie:checked ~ .site-wrapper .filter-nav label[for="pie"],
+#roll:checked ~ .site-wrapper .filter-nav label[for="roll"],
+#cheesecake:checked ~ .site-wrapper .filter-nav label[for="cheesecake"],
+#cake:checked ~ .site-wrapper .filter-nav label[for="cake"],
+#pastry:checked ~ .site-wrapper .filter-nav label[for="pastry"] {
+    background-color: #cfd8dc; 
+    border: 1px solid #b0bec5;
+    font-weight: bold;
+}
+
+.site-wrapper {
+    display: grid;
+    grid-template-columns: 1fr; 
+    grid-template-areas: 
+        "header"
+        "sidebar"
+        "gallery"
+        "footer";
+    gap: 20px;
+    padding: 10px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header {
+    grid-area: header;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #2c3e50;
+}
+
+.logo-icon {
+    font-family: serif;
+    font-style: italic;
+    color: #E84A5F;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.calories-widget {
+    display: none;
+}
+
+.filter-nav {
+    display: grid;
+    gap: 10px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eef1f3;
+    padding: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-align: center;
+    font-size: 1rem;
+    color: #4a4a4a;
+}
+
+.btn:hover {
+    background-color: #e0e0e0;
+}
+
+.gallery {
+    grid-area: gallery;
+    display: grid;
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.card-top {
+    flex-grow: 1;
+}
+
+.img-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #eee;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-content h3 {
+    font-size: 1rem;
+    color: #555;
+    font-weight: 400;
+}
+
+.card-content h3 span {
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.card-bottom {
+    padding: 15px;
+    border-top: 1px solid #e0e0e0;
+    background-color: #fafafa;
+    margin-top: auto;
+}
+
+.card-bottom p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.footer {
+    grid-area: footer;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: #778ca3;
+    text-decoration: none;
+}
+
+@media (max-width: 729px) {
+    .filter-nav {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (min-width: 730px) and (max-width: 1199px) {
+    .filter-nav {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+}
+
+@media (min-width: 1200px) {
+    .site-wrapper {
+        grid-template-columns: 3fr 1fr;
+        grid-template-areas: 
+            "header header"
+            "gallery sidebar"
+            "footer footer";
+    }
+
+    .calories-widget {
+        display: block;
+        margin-bottom: 30px;
+        background: #fff;
+        padding: 10px;
+    }
+    
+    .calories-widget h3 {
+        font-size: 1rem;
+        margin-bottom: 15px;
+        font-weight: 400;
+    }
+
+    .slider-mockup {
+        height: 4px;
+        background: #ddd;
+        position: relative;
+        margin: 20px 10px;
+    }
+    .slider-line {
+        position: absolute;
+        left: 20%;
+        right: 40%;
+        top: 0;
+        bottom: 0;
+        background: #2c3e50;
+    }
+    .slider-dot {
+        width: 12px;
+        height: 12px;
+        background: #2c3e50;
+        border-radius: 50%;
+        position: absolute;
+        top: -4px;
+        cursor: pointer;
+    }
+    .slider-dot.left { left: 0; }
+    .slider-dot.right { right: 0; }
+
+    .filter-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
